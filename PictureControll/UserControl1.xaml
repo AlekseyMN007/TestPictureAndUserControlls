@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="PictureControll.UserControl1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PictureControll"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="150" MaxWidth="150" MaxHeight="100" MinWidth="150" MinHeight="100" MouseEnter="UserControl_MouseEnter" MouseLeave="UserControl_MouseLeave" BorderBrush="#FFF5FFB9">
+    <UserControl.Resources>
+        <BitmapImage x:Key="ScreenGift" UriSource="C:/Test/Test.jpg"/>
+    </UserControl.Resources>
+            
+     <Grid x:Name="ButtonGrid">
+
+     <Image  Source="{StaticResource ScreenGift}" Stretch="Fill"  />
+
+        <StackPanel x:Name="ButtonStackPanel" Orientation="Horizontal" Height="35" VerticalAlignment="Bottom" Opacity="0.7">
+            <Button  Content="Info" FontSize="15" Width="50" Click="Button_Click"/>
+            <Button  Content="Edit" FontSize="15" Width="50"/>
+            <Button  Content="Delete" FontSize="15" Width="50"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

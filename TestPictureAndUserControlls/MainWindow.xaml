@@ -6,15 +6,45 @@
         xmlns:local="clr-namespace:TestPictureAndUserControlls"
         xmlns:PictureControll="clr-namespace:PictureControll;assembly=PictureControll" x:Class="TestPictureAndUserControlls.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"    
+    >
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="170*"/>
-            <ColumnDefinition Width="170*"/>
-            <ColumnDefinition Width="451*"/>
+            <ColumnDefinition Width="*"/>
+            
         </Grid.ColumnDefinitions>
-        <PictureControll:UserControl1 HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="150"/>
-        <PictureControll:UserControl1 HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="150" Grid.Column="2"/>
-        <PictureControll:UserControl1 HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="150" Grid.Column="1"/>
+
+        <Grid Grid.RowSpan="2">
+            <TextBlock Text="Projects" HorizontalAlignment="Center" Margin="10" FontSize="28"/>
+        </Grid>
+
+        <ScrollViewer Grid.Column="1" Grid.Row="1" Background="#FFF1F1F1">
+            <StackPanel>
+                <TextBlock Text="Active Projects" Margin="10" FontSize="20"/>
+                <StackPanel Margin="20 0">
+                    <ItemsControl x:Name="ProjectsViewListPage" ItemsSource="{Binding Projects}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Margin="10" Width="150" Height="100">
+                                    <PictureControll:UserControl1/>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+        
     </Grid>
 </Window>

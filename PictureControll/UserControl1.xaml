@@ -12,7 +12,11 @@
             
      <Grid x:Name="ButtonGrid">
 
-     <Image  Source="{StaticResource ScreenGift}" Stretch="Fill"  />
+     <Image  Source="{StaticResource ScreenGift}" Stretch="Fill"  >
+            <Image.Effect>
+                <DropShadowEffect ShadowDepth="1"/>
+            </Image.Effect>
+        </Image>
 
         <StackPanel x:Name="ButtonStackPanel" Orientation="Horizontal" Height="35" VerticalAlignment="Bottom" Opacity="0.7">
             <Button  Content="Info" FontSize="15" Width="50" Click="Button_Click"/>
